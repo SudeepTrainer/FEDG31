@@ -1,0 +1,20 @@
+.menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background: #f0f0f0;
+}
+.menu-link{
+    color: blueviolet;
+    font-size: 1.25rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 10px;
+    text-decoration: none;
+    transition: all 100ms ease;
+}
+.menu-link:hover,
+.menu-link:focus{
+    color: darkblue;
+    font-size: 1.35rem;
+}

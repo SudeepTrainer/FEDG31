@@ -1,0 +1,27 @@
+.container{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: [main-start]1fr[content-start] 4fr[main-end content-end];
+    grid-template-rows: 1fr 4fr 1fr;
+    background:orangered;
+}
+                                                                                                                        
+.container div{
+    border: 3px solid slateblue ;
+    background: silver;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header{
+    /* grid-column-start: 1;
+    grid-column-end: 3; */
+    /* grid-column: 1/-1; */
+    /* grid-column: main-start/main-end; */
+    grid-column: main;
+}
+
+.footer{
+    grid-column: main-start/main-end;
+}

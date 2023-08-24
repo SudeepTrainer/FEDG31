@@ -1,0 +1,42 @@
+.container{
+    height: 100vh;
+    display: grid;
+    background:orangered;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: 1fr 4fr 1fr;
+    grid-template-areas: 
+    "h h h h h h h h h h h h"
+    "left left left c c c c c c right right right"
+    ". f f f f f f f f f f .";
+}                                                                                            
+.header{
+    grid-area: h;
+}
+
+/* .menu{
+    grid-area: m;
+} */
+
+.leftsidebar{
+    grid-area: left;
+}
+
+.content{
+    grid-area: c;
+}
+
+.rightsidebar{
+    grid-area: right;
+}
+
+.footer{
+    grid-area: f;
+}
+
+.container div{
+    border: 3px solid slateblue ;
+    background: silver;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

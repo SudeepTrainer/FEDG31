@@ -1,0 +1,48 @@
+.card{
+    width: 70%;
+    max-width: 700px;
+    border: 20px solid #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.card img{
+    width: 300px;
+}
+
+.card-title{
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+.card-body{
+    font-size: 1.25rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 150%;
+    color: #2e2e2e;
+}
+
+.card-footer{
+    display: flex;
+    justify-content: baseline;
+    gap: 20px;
+    margin: 10px;
+}
++
+.card-btn{
+    text-decoration: none;
+    padding: 1.2em 1.5em;
+    background: steelblue;
+    color: whitesmoke;
+}
+
+@media (min-width:670px) {
+.card{
+    flex-direction: row;
+}
+}
+
+-
