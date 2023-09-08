@@ -4,10 +4,10 @@
 // let skills = ["Entrepenuer","Founder","Developer"];
 
 let elonObject = {
-    fullname:"Elon Musk",
-    age:45,
-    country:"SA",
-    skills:["Entrepenuer","Founder","Developer"]
+    fullname: "Elon Musk",
+    age: 45,
+    country: "SA",
+    skills: ["Entrepenuer", "Founder", "Developer"]
 }
 
 console.log(elonObject.fullname);
@@ -18,13 +18,13 @@ console.log(elonObject.skills[1]);
 
 // objects are references 
 const product1 = {
-    name:"Keyboard",
-    price:2456
+    name: "Keyboard",
+    price: 2456
 }
 
 const product2 = {
-    name:"Keyboard",
-    price:2456
+    name: "Keyboard",
+    price: 2456
 }
 
 console.log(product1 === product2);
@@ -38,69 +38,119 @@ console.log(product1 === product2);
 // product3.name = "Laptop";
 // console.log(product2);
 
-let product3 = {...product2}; // clone an object with spread operator
+let product3 = { ...product2 }; // clone an object with spread operator
 product3.name = "Laptop";
 console.log(product3);
 console.log(product2);
 
-let product = {} 
+let product = {}
 
 product.name = "TV";
 product.price = 234234;
 console.log(product);
 
-let person ={
-    firstName:"Mark",
-    lastName:"Zuck",
-    // getFullName:function getFullName(){
-    //     return `${this.firstName} ${this.lastName}`
-    // }
-    // getFullName:function (){
-    //     return `${this.firstName} ${this.lastName}`
-    // }
-    getFullName(){
-       return `${this.firstName} ${this.lastName}`
+let person = {
+    firstName: "Mark",
+    lastName: "Zuck",
+    age: 24,
+    getFullName() {
+        console.log(`${this.firstName} ${this.lastName}`)
     },
-    greet(){
-        return `Hi, this is ${this.firstName}`
+    greet() {
+        console.log(`HI, This is ${this.firstName}`)
     }
 }
 
-console.log(person.getFullName());
-console.log(person.greet());
+person.getFullName();
+person.greet();
 
-// function Person(firstName,lastName){
-//     let person = {};
+let personMethods = {
+    getFullName: function () {
+        console.log(`${this.firstName} ${this.lastName}`)
+    },
+    greet: function () {
+        console.log(`HI, This is ${this.firstName}`)
+    }
+}
+
+//function instantiation
+// function makePerson(firstName, lastName, age) {
+//     let person = Object.create(personMethods);
 //     person.firstName = firstName;
 //     person.lastName = lastName;
-//     person.getFullName = function(){
-//         return `${this.firstName} ${this.lastName}`
-//      };
-//     person.greet = function(){
-//         return `Hi, this is ${this.firstName}`
-//     }
+//     person.age = age;
+//     // person.getFullName = function () {
+//     //     console.log(`${this.firstName} ${this.lastName}`)
+//     // };
+//     // person.greet = function () {
+//     //     console.log(`HI, This is ${this.firstName}`)
+//     // };
+//     // person.greet = personMethods.greet;
+//     // person.getFullName = personMethods.getFullName;
 //     return person;
 // }
+// let elonMusk = makePerson("Elon", "Musk", 23);
+// elonMusk.greet();
+// let billGates = makePerson("Bill", "Gates", 24);
+// billGates.getFullName();
 
-// let elon = Person("Elon","Musk");
-// console.log(elon.greet());
+// Object.create
+let parent = {};
+parent.country = "India";
 
-const personMethods = {
-    getFullName:function(){
-        return `${this.firstName} ${this.lastName}`
-     },
-    greet :function(){
-        return `Hi, this is ${this.firstName}`
-    }
-}
-function Person(firstName,lastName){
-    let person = {};
+let child = Object.create(parent);
+child.name = "Mark";
+
+console.log(child.name);
+console.log(child.country);
+console.log(parent.name);
+
+console.log(Object.prototype);
+
+// Prototype based Inheritance
+function Person(firstName, lastName, age) {
+    // let person = Object.create(Person.prototype);
     person.firstName = firstName;
     person.lastName = lastName;
-    person.getFullName = personMethods.getFullName;
-    person.greet = personMethods.greet;
+    person.age = age;
     return person;
 }
 
-let elon = Person("Elon","Musk");
-console.log(elon.greet());
+Person.prototype.getFullName = function getFullName() {
+    console.log(`${this.firstName} ${this.lastName}`)
+}
+
+Person.prototype.greet = function greet() {
+    console.log(`HI, This is ${this.firstName}`)
+}
+
+let elonMusk = new Person("Elon", "Musk", 23);
+elonMusk.greet();
+let billGates = new Person("Bill", "Gates", 24);
+billGates.getFullName();
+
+let anArray = []
+let anotherArray = new Array();
+console.log(Array.prototype);
+console.log(String.prototype);
+
+class Person1 {
+    constructor(fname, lname, age) {
+        this.firstName = fname;
+        this.lastName = lname;
+        this.age = age;
+    }
+    getFullName() {
+        console.log(`${this.firstName} ${this.lastName}`)
+    }
+    greet() {
+        console.log(`HI, This is ${this.firstName}`)
+    }
+}
+
+let elon = new Person1("Elon", "Musk", 24);
+elon.greet();
+elon.getFullName();
+
+// Using function instatiation with prototype , create an Account with properties like account number
+// , balance, withdraw, deposit,etc. Also, do the same with class.
