@@ -58,3 +58,5 @@ const square = a => a * a;
 const makeAPerson = (name,age,gender) =>({name:name,age:age,gender:gender})
 console.log(makeAPerson("Mark",24,"Male"));
 
+console.log(`${2+3}`);
+console.log('${2+3}');

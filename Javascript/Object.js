@@ -110,10 +110,10 @@ console.log(Object.prototype);
 // Prototype based Inheritance
 function Person(firstName, lastName, age) {
     // let person = Object.create(Person.prototype);
-    person.firstName = firstName;
-    person.lastName = lastName;
-    person.age = age;
-    return person;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+    //return person;
 }
 
 Person.prototype.getFullName = function getFullName() {
@@ -128,12 +128,6 @@ let elonMusk = new Person("Elon", "Musk", 23);
 elonMusk.greet();
 let billGates = new Person("Bill", "Gates", 24);
 billGates.getFullName();
-
-let anArray = []
-let anotherArray = new Array();
-console.log(Array.prototype);
-console.log(String.prototype);
-
 class Person1 {
     constructor(fname, lname, age) {
         this.firstName = fname;
@@ -154,3 +148,7 @@ elon.getFullName();
 
 // Using function instatiation with prototype , create an Account with properties like account number
 // , balance, withdraw, deposit,etc. Also, do the same with class.
+
+let anArray = [];
+let anotherArray = new Array();
+
