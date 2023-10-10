@@ -1,4 +1,7 @@
 import { useState } from "react";
+import MovieCard from "./MovieCard";
+import ActionAreaCard from "./MaterialCard";
+import { Grid } from "@mui/material";
 
 export default function SearchMovie(){
 
@@ -8,6 +11,7 @@ export default function SearchMovie(){
     function fetchMovies(event){
         event.preventDefault();
         const url = `https://api.themoviedb.org/3/search/movie?&api_key=24d1042ae5621a567de03462da33bd83&query=${movieName}&include_adult=false&language=en-US&page=1`;
+        console.log(url);
         fetch(url)
             .then(res => res.json())
             .then(data => setMovies(data.results));
@@ -26,9 +30,11 @@ export default function SearchMovie(){
                     placeholder="Enter movie name" value={movieName} onChange={(handleInput)}/>
             <button className="button" type="submit">Search</button>
         </form>
-        <div>
-            {movies.map(movie => <h3>{movie.title}</h3>)}
-        </div>
+        <Grid container columnGap={4}>
+            {movies.map(movie => 
+                <ActionAreaCard data = {movie} />
+                )}
+        </Grid>
         </>
     )
 }
